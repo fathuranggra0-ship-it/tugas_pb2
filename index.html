@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kasirin – Dompet Digital & Kasir Bisnis</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Logo Kasirin: tas belanja dengan koin -->
+<svg width="0" height="0" style="position:absolute"><symbol id="logo" viewBox="0 0 48 48">
+  <rect width="48" height="48" rx="14" fill="#0d3b36"/>
+  <path d="M13 19h22l-2.2 15a2 2 0 0 1-2 1.7H17.2a2 2 0 0 1-2-1.7z" fill="#ffb627"/>
+  <path d="M18.5 19v-2a5.5 5.5 0 0 1 11 0v2" fill="none" stroke="#e4f4ec" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="24" cy="27.5" r="4.2" fill="#0d3b36"/><path d="M24 25.4v4.2M22.4 27.5h3.2" stroke="#ffb627" stroke-width="1.6" stroke-linecap="round"/>
+</symbol></svg>
+
+<main id="login" class="login">
+  <section class="auth">
+    <svg class="logo" viewBox="0 0 48 48"><use href="#logo"/></svg>
+    <h1>Kasirin</h1>
+    <p class="muted">Dompet digital dan kasir untuk bisnismu.</p>
+
+    <div class="seg"><button id="tl" class="on" type="button">Masuk</button><button id="tr" type="button">Buat akun</button></div>
+
+    <!-- Masuk -->
+    <form id="f1">
+      <label for="contact">No. telepon</label>
+      <input id="contact" inputmode="tel" placeholder="08xxxxxxxxxx" required>
+      <button class="btn">Kirim kode OTP</button>
+      <div class="demo"><small>Coba akun demo:</small><button type="button" data-c="0811111111">Toko Berkah Sari</button></div>
+    </form>
+    <form id="f2" hidden>
+      <p id="otpbox" class="otpbox"></p>
+      <label for="otp">Masukkan 6 digit kode OTP</label>
+      <input id="otp" inputmode="numeric" maxlength="6" placeholder="••••••" required>
+      <button class="btn">Masuk</button>
+      <button type="button" id="back" class="link">Ganti nomor</button>
+    </form>
+
+    <!-- Buat akun -->
+    <form id="fr" hidden>
+      <div class="g2">
+        <div><label for="rgNama">Nama lengkap</label><input id="rgNama" required></div>
+        <div><label for="rgHp">No. telepon</label><input id="rgHp" inputmode="tel" placeholder="08xxxxxxxxxx" required></div>
+        <div><label for="rgTmp">Tempat lahir</label><input id="rgTmp" required></div>
+        <div><label for="rgTgl">Tanggal lahir</label><input id="rgTgl" type="date" required></div>
+        <div><label for="rgUmur">Umur</label><input id="rgUmur" readonly placeholder="Terisi otomatis"></div>
+        <div><label for="rgBiz">Jenis bisnis (opsional)</label><select id="rgBiz"></select></div>
+      </div>
+      <div id="rgBizWrap" hidden><label for="rgBizNama">Nama bisnis</label><input id="rgBizNama"></div>
+      <label for="rgAlamat">Alamat</label>
+      <textarea id="rgAlamat" rows="2" required></textarea>
+      <button class="btn">Buat akun</button>
+    </form>
+  </section>
+</main>
+
+<div id="app" hidden>
+  <header class="head">
+    <div class="brand"><svg class="logo sm" viewBox="0 0 48 48"><use href="#logo"/></svg><b>Kasirin</b></div>
+    <div id="who"></div>
+    <button class="out" onclick="logout()">Keluar</button>
+  </header>
+  <nav id="nav"></nav>
+  <main id="view"></main>
+</div>
+
+<div id="tst"></div>
+<script src="app.js"></script>
+</body>
+</html>
